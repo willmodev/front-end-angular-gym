@@ -1,0 +1,31 @@
+<app-title title="Listado de clientes" />
+
+<div class="flex justify-end my-2">
+  <a  class="bg-slate-900 cursor-pointer px-3 py-2 rounded-sm text-white font-medium">Registrar Cliente</a>
+</div>
+
+<table class="table-auto shadow-lg p-3 mt-5 rounded-lg w-full">
+  <thead>
+    <tr>
+      <th class="border-b py-1 border-slate-300 font-bold">#</th>
+      <th class="border-b py-1 border-slate-300">Nombres</th>
+      <th class="border-b py-1 border-slate-300">Apellidos</th>
+      <th class="border-b py-1 border-slate-300">Email</th>
+      <th class="border-b py-1 border-slate-300">Telefono</th>
+      <th class="border-b py-1 border-slate-300">Direccion</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (client of clients; track $index) {
+
+      <tr class="hover:bg-slate-300 text-center">
+        <td class="font-bold text-slate-900 border-b py-1 border-slate-300 px-1">{{ $index  + 1 }}</td>
+        <td class="border-b py-1 border-slate-300 px-1">{{ client.names }}</td>
+        <td class="border-b py-1 border-slate-300 px-1">{{ client.surnames }}</td>
+        <td class="border-b py-1 border-slate-300 px-1">{{ client.email }}</td>
+        <td class="border-b py-1 border-slate-300 px-1">{{ client.phone }}</td>
+        <td class="border-b py-1 border-slate-300 px-1">{{ client.address }}</td>
+      </tr>
+    }
+  </tbody>
+</table>

@@ -1,0 +1,28 @@
+<app-title title="Listado de usuarios" />
+
+<div class="flex justify-end my-2">
+  <a class="bg-slate-900 cursor-pointer px-3 py-2 rounded-sm text-white font-medium"
+   [routerLink]="['/dashboard/usuarios/create']">Crear usuario</a>
+</div>
+
+<table class="table-auto shadow-lg p-3 rounded-lg w-full">
+  <thead>
+    <tr>
+      <th class="border-b py-1 border-slate-300 font-bold">#</th>
+      <th class="border-b py-1 border-slate-300">Email</th>
+      <th class="border-b py-1 border-slate-300">Role</th>
+      <th class="border-b py-1 border-slate-300">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (user of users; track $index) {
+
+      <tr class="hover:bg-slate-300 text-center">
+        <td class="font-bold text-slate-900 border-b py-1 border-slate-300 px-1">{{ $index  + 1 }}</td>
+        <td class="border-b py-1 border-slate-300 px-1">{{ user.email }}</td>
+        <td class="border-b py-1 border-slate-300 px-1">{{ user.role.name }}</td>
+        <td class="border-b py-1 border-slate-300 px-1">{{ user.status }}</td>
+      </tr>
+    }
+  </tbody>
+</table>
